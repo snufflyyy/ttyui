@@ -1,6 +1,0 @@
-/home/braden/Programming/C/ttyui/build/CMakeFiles/ttyui.dir
-/home/braden/Programming/C/ttyui/build/CMakeFiles/edit_cache.dir
-/home/braden/Programming/C/ttyui/build/CMakeFiles/rebuild_cache.dir
-/home/braden/Programming/C/ttyui/build/examples/ttyui-weather/CMakeFiles/ttyui-weather.dir
-/home/braden/Programming/C/ttyui/build/examples/ttyui-weather/CMakeFiles/edit_cache.dir
-/home/braden/Programming/C/ttyui/build/examples/ttyui-weather/CMakeFiles/rebuild_cache.dir

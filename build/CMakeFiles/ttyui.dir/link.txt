@@ -1,2 +1,0 @@
-/usr/bin/ar qc libttyui.a CMakeFiles/ttyui.dir/src/ttyui.c.o CMakeFiles/ttyui.dir/src/types/vector2.c.o "CMakeFiles/ttyui.dir/src/display-buffer.c.o" CMakeFiles/ttyui.dir/src/cursor.c.o CMakeFiles/ttyui.dir/src/box.c.o "CMakeFiles/ttyui.dir/src/widgets/widget-manager.c.o" "CMakeFiles/ttyui.dir/src/widgets/widget-box.c.o"
-/usr/bin/ranlib libttyui.a

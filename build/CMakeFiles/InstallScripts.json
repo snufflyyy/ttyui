@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/braden/Programming/C/ttyui/build/cmake_install.cmake",
-		"/home/braden/Programming/C/ttyui/build/examples/ttyui-weather/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
