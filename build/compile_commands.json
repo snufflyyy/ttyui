@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/braden/Programming/C/ttyui/build",
+  "command": "/usr/bin/cc  -I/home/braden/Programming/C/ttyui/include -g -o CMakeFiles/ttyui.dir/src/ttyui.c.o -c /home/braden/Programming/C/ttyui/src/ttyui.c",
+  "file": "/home/braden/Programming/C/ttyui/src/ttyui.c",
+  "output": "CMakeFiles/ttyui.dir/src/ttyui.c.o"
+},
+{
+  "directory": "/home/braden/Programming/C/ttyui/build",
+  "command": "/usr/bin/cc  -I/home/braden/Programming/C/ttyui/include -g -o CMakeFiles/ttyui.dir/src/types/vector2.c.o -c /home/braden/Programming/C/ttyui/src/types/vector2.c",
+  "file": "/home/braden/Programming/C/ttyui/src/types/vector2.c",
+  "output": "CMakeFiles/ttyui.dir/src/types/vector2.c.o"
+},
+{
+  "directory": "/home/braden/Programming/C/ttyui/build",
+  "command": "/usr/bin/cc  -I/home/braden/Programming/C/ttyui/include -g -o CMakeFiles/ttyui.dir/src/display-buffer.c.o -c /home/braden/Programming/C/ttyui/src/display-buffer.c",
+  "file": "/home/braden/Programming/C/ttyui/src/display-buffer.c",
+  "output": "CMakeFiles/ttyui.dir/src/display-buffer.c.o"
+},
+{
+  "directory": "/home/braden/Programming/C/ttyui/build",
+  "command": "/usr/bin/cc  -I/home/braden/Programming/C/ttyui/include -g -o CMakeFiles/ttyui.dir/src/cursor.c.o -c /home/braden/Programming/C/ttyui/src/cursor.c",
+  "file": "/home/braden/Programming/C/ttyui/src/cursor.c",
+  "output": "CMakeFiles/ttyui.dir/src/cursor.c.o"
+},
+{
+  "directory": "/home/braden/Programming/C/ttyui/build",
+  "command": "/usr/bin/cc  -I/home/braden/Programming/C/ttyui/include -g -o CMakeFiles/ttyui.dir/src/box.c.o -c /home/braden/Programming/C/ttyui/src/box.c",
+  "file": "/home/braden/Programming/C/ttyui/src/box.c",
+  "output": "CMakeFiles/ttyui.dir/src/box.c.o"
+},
+{
+  "directory": "/home/braden/Programming/C/ttyui/build",
+  "command": "/usr/bin/cc  -I/home/braden/Programming/C/ttyui/include -g -o CMakeFiles/ttyui.dir/src/widgets/widget-manager.c.o -c /home/braden/Programming/C/ttyui/src/widgets/widget-manager.c",
+  "file": "/home/braden/Programming/C/ttyui/src/widgets/widget-manager.c",
+  "output": "CMakeFiles/ttyui.dir/src/widgets/widget-manager.c.o"
+},
+{
+  "directory": "/home/braden/Programming/C/ttyui/build",
+  "command": "/usr/bin/cc  -I/home/braden/Programming/C/ttyui/include -g -o CMakeFiles/ttyui.dir/src/widgets/widget-box.c.o -c /home/braden/Programming/C/ttyui/src/widgets/widget-box.c",
+  "file": "/home/braden/Programming/C/ttyui/src/widgets/widget-box.c",
+  "output": "CMakeFiles/ttyui.dir/src/widgets/widget-box.c.o"
+},
+{
+  "directory": "/home/braden/Programming/C/ttyui/build/examples/ttyui-weather",
+  "command": "/usr/bin/cc  -I/home/braden/Programming/C/ttyui/include -g -o CMakeFiles/ttyui-weather.dir/src/main.c.o -c /home/braden/Programming/C/ttyui/examples/ttyui-weather/src/main.c",
+  "file": "/home/braden/Programming/C/ttyui/examples/ttyui-weather/src/main.c",
+  "output": "examples/ttyui-weather/CMakeFiles/ttyui-weather.dir/src/main.c.o"
+}
+]

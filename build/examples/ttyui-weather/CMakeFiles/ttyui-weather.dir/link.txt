@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/ttyui-weather.dir/link.d "CMakeFiles/ttyui-weather.dir/src/main.c.o" -o ttyui-weather  ../../libttyui.a
