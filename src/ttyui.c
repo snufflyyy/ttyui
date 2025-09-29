@@ -55,7 +55,7 @@ Ttyui* ttyui_create() {
     //int flags = fcntl(STDIN_FILENO, F_GETFL, 0);
     //fcntl(STDIN_FILENO, F_SETFL, flags | O_NONBLOCK);
 
-    ttyui->widget_manager = ttyui_widget_manager_create((Vector2) { 0, 0 }, ttyui->size, (Vector2) { 0, 0 });
+    ttyui->widget_manager = ttyui_widget_manager_create((Vector2) { 0, 0 }, ttyui->size, TTYUI_WIDGET_MANAGER_DEFAULT_PADDING);
 
     ttyui->running = true;
     return ttyui;

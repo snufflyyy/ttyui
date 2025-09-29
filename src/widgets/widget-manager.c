@@ -37,20 +37,27 @@ void ttyui_widget_manager_add(WidgetManager* manager, Widget* widget) {
 void ttyui_widget_manager_update(WidgetManager* manager) {
     if (manager->widget_count <= 0) { return; }
 
-    int total_padding_x = manager->padding.x * (manager->widget_count + 1);
-    int widget_width = (manager->size.x - total_padding_x) / manager->widget_count;
-    int widget_height = manager->size.y - (manager->padding.y * 2);
+    // internal + left + right
+    int total_padding_x = (manager->widget_count - 1) * manager->padding.x + 2 * manager->padding.x;
+    int available_width = manager->size.x - total_padding_x;
+
+    int widget_width  = available_width / manager->widget_count;
+    int widget_height = manager->size.y - 2 * manager->padding.y;
 
     for (int i = 0; i < manager->widget_count; i++) {
         manager->widgets[i]->size->x = widget_width;
         manager->widgets[i]->size->y = widget_height;
 
-        manager->widgets[i]->position->x = manager->position.x + manager->padding.x + i * (widget_width + manager->padding.x);
+        // start at left + one padding
+        manager->widgets[i]->position->x =
+            manager->position.x + manager->padding.x + i * (widget_width + manager->padding.x);
+
         manager->widgets[i]->position->y = manager->position.y + manager->padding.y;
 
         manager->widgets[i]->ttyui_widget_update(manager->widgets[i]);
     }
 }
+
 
 void ttyui_widget_manager_render(WidgetManager* manager, DisplayBuffer* display_buffer) {
     for (int i = 0; i < manager->widget_count; i++) {

@@ -2,7 +2,6 @@
 #include <unistd.h>
 
 #include "ttyui.h"
-#include "types/vector2.h"
 #include "widgets/widget-box.h"
 #include "widgets/widget-manager.h"
 
@@ -11,6 +10,11 @@ int main() {
 
     ttyui_widget_manager_add(&ttyui_context->widget_manager, (Widget*) ttyui_widget_box_create());
     ttyui_widget_manager_add(&((WidgetBox*) ttyui_context->widget_manager.widgets[0])->widget_manager, (Widget*) ttyui_widget_box_create());
+    ttyui_widget_manager_add(&((WidgetBox*) ttyui_context->widget_manager.widgets[0])->widget_manager, (Widget*) ttyui_widget_box_create());
+
+    ttyui_widget_manager_add(&ttyui_context->widget_manager, (Widget*) ttyui_widget_box_create());
+    ttyui_widget_manager_add(&((WidgetBox*) ttyui_context->widget_manager.widgets[1])->widget_manager, (Widget*) ttyui_widget_box_create());
+    ttyui_widget_manager_add(&((WidgetBox*) ttyui_context->widget_manager.widgets[1])->widget_manager, (Widget*) ttyui_widget_box_create());
 
     char event[3];
     while (ttyui_context->running) {
