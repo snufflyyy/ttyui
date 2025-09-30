@@ -1,6 +1,7 @@
 #include "ttyui.h"
-#include "cursor.h"
-#include "display-buffer.h"
+#include "rendering/cell/cell-style-manager.h"
+#include "rendering/cursor.h"
+#include "rendering/display-buffer.h"
 #include "types/vector2.h"
 #include "widgets/widget-manager.h"
 
@@ -43,13 +44,15 @@ Ttyui* ttyui_create() {
     // special characters are treated normally, and there is very minimal output processing.
     ttyui_enable_raw_mode(ttyui);
 
+    ttyui->cell_style_manager = ttyui_cell_style_manager_create();
+
     setlocale(LC_ALL, "");
     ttyui->front_buffer = ttyui_display_buffer_create(ttyui->size);
     ttyui->back_buffer = ttyui_display_buffer_create(ttyui->size);
 
     ttyui_cursor_hide();
 
-    ttyui_display_buffer_force_present(ttyui->front_buffer);
+    ttyui_display_buffer_force_present(ttyui->front_buffer, &ttyui->cell_style_manager);
 
     // makes STDIN_FILENO non blocking when using functions like read
     //int flags = fcntl(STDIN_FILENO, F_GETFL, 0);
@@ -70,7 +73,7 @@ void ttyui_render(Ttyui* ttyui) {
 
     ttyui_widget_manager_render(&ttyui->widget_manager, ttyui->back_buffer);
 
-    ttyui_display_buffer_present(ttyui->front_buffer, ttyui->back_buffer);
+    ttyui_display_buffer_present(ttyui->front_buffer, ttyui->back_buffer, &ttyui->cell_style_manager);
     ttyui_display_buffer_swap(&ttyui->front_buffer, &ttyui->back_buffer);
 }
 

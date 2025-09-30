@@ -1,4 +1,4 @@
-#include "cursor.h"
+#include "rendering/cursor.h"
 
 #include <stdio.h>
 #include <wchar.h>

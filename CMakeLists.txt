@@ -9,9 +9,12 @@ add_library(${PROJECT_NAME}
 
     src/types/vector2.c
 
-    src/display-buffer.c
-    src/cursor.c
-    src/box.c
+    src/rendering/cell/cell.c
+    src/rendering/cell/cell-style-manager.c
+
+    src/rendering/display-buffer.c
+    src/rendering/cursor.c
+    src/rendering/box.c
 
     src/widgets/widget-manager.c
     src/widgets/widget-box.c

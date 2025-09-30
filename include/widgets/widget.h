@@ -1,6 +1,6 @@
 #pragma once
 
-#include "display-buffer.h"
+#include "rendering/display-buffer.h"
 #include "types/vector2.h"
 
 typedef struct Widget {

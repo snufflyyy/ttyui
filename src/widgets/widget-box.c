@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "box.h"
-#include "display-buffer.h"
+#include "rendering/box.h"
+#include "rendering/display-buffer.h"
 #include "types/vector2.h"
 #include "widgets/widget-manager.h"
 #include "widgets/widget.h"
