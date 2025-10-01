@@ -1,6 +1,6 @@
 #pragma once
 
-typedef enum BackgroundColor {
+typedef enum TtyuiBackgroundColor {
     TTYUI_COLOR_BACKGROUND_DEFAULT = 49,
     TTYUI_COLOR_BACKGROUND_WHITE = 47,
     TTYUI_COLOR_BACKGROUND_BLACK = 40,
@@ -10,9 +10,9 @@ typedef enum BackgroundColor {
     TTYUI_COLOR_BACKGROUND_BLUE = 44,
     TTYUI_COLOR_BACKGROUND_MAGENTA = 45,
     TTYUI_COLOR_BACKGROUND_CYAN = 46,
-} BackgroundColor;
+} TtyuiBackgroundColor;
 
-typedef enum ForegroundColor {
+typedef enum TtyuiForegroundColor {
     TTYUI_COLOR_FOREGROUND_DEFAULT = 39,
     TTYUI_COLOR_FOREGROUND_WHITE = 37,
     TTYUI_COLOR_FOREGROUND_BLACK = 30,
@@ -22,4 +22,4 @@ typedef enum ForegroundColor {
     TTYUI_COLOR_FOREGROUND_BLUE = 34,
     TTYUI_COLOR_FOREGROUND_MAGENTA = 35,
     TTYUI_COLOR_FOREGROUND_CYAN = 36,
-} ForegroundColor;
+} TtyuiForegroundColor;

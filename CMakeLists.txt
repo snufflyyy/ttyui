@@ -5,8 +5,9 @@ project(ttyui C)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(${PROJECT_NAME}
-    src/ttyui.c
+    src/ttyui-context.c
 
+    src/event.c
     src/types/vector2.c
 
     src/rendering/cell/cell.c

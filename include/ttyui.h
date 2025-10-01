@@ -1,26 +1,21 @@
 #pragma once
 
-#include <stdbool.h>
-#include <termios.h>
+#include "ttyui-context.h"
 
+#include "types/vector2.h"
+
+#include "event.h"
+
+#include "rendering/cell/cell.h"
 #include "rendering/cell/cell-style-manager.h"
 #include "rendering/display-buffer.h"
+#include "rendering/cursor.h"
+#include "rendering/box.h"
+
+#include "widgets/widget.h"
 #include "widgets/widget-manager.h"
+#include "widgets/widget-box.h"
 
-typedef struct Ttyui {
-    bool running;
-    Vector2 size;
-
-    struct termios original_termios;
-
-    CellStyleManager cell_style_manager;
-    DisplayBuffer* front_buffer;
-    DisplayBuffer* back_buffer;
-
-    WidgetManager widget_manager;
-} Ttyui;
-
-Ttyui* ttyui_create();
-void ttyui_update(Ttyui* ttyui);
-void ttyui_render(Ttyui* ttyui);
-void ttyui_destroy(Ttyui* ttyui);
+#include "notifications/notification.h"
+#include "notifications/notification-queue.h"
+#include "notifications/notification-manager.h"

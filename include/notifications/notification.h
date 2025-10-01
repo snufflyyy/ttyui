@@ -1,9 +1,10 @@
 #pragma once
 
 #include "types/vector2.h"
-#include <box.h>
+#include "rendering/box.h"
 
 typedef enum NotificationLevel {
+    DEFAULT,
     INFO, // blue
     SUCCESS, // green
     WARNING, // yellow
@@ -11,8 +12,8 @@ typedef enum NotificationLevel {
 } NotificationLevel;
 
 typedef struct Notification {
-    Box box;
-    Vector2 padding;
+    TtyuiBox box;
+    TtyuiVector2 padding;
 
     NotificationLevel level;
 

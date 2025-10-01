@@ -1,8 +1,8 @@
 #pragma once
 
-typedef struct Vector2 {
+typedef struct TtyuiVector2 {
     int x, y;
-} Vector2;
+} TtyuiVector2;
 
-Vector2 ttyui_vector2_add(Vector2 a, Vector2 b);
-Vector2 ttyui_vector2_subtract(Vector2 a, Vector2 b);
+TtyuiVector2 ttyui_vector2_add(TtyuiVector2 a, TtyuiVector2 b);
+TtyuiVector2 ttyui_vector2_subtract(TtyuiVector2 a, TtyuiVector2 b);

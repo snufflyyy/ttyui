@@ -6,16 +6,18 @@
 #include "types/color.h"
 #include "rendering/display-buffer.h"
 
-#define MAX_MESSAGE_SIZE 50
-
-typedef struct Box {
-    Vector2 position;
-    Vector2 size;
-
+typedef struct TtyuiBoxStyle {
     bool show_border;
-    ForegroundColor border_color;
-} Box;
+    TtyuiForegroundColor border_color;
+    TtyuiBackgroundColor background_color;
+} TtyuiBoxStyle;
 
-Box ttyui_box_create(Vector2 position, Vector2 size);
-void ttyui_box_render(Box* box, DisplayBuffer* display_buffer);
-void ttyui_box_destroy(Box* box);
+typedef struct TtyuiBox {
+    TtyuiVector2 position;
+    TtyuiVector2 size;
+
+    TtyuiBoxStyle style;
+} TtyuiBox;
+
+TtyuiBox ttyui_box_create(TtyuiVector2 position, TtyuiVector2 size);
+void ttyui_box_render(TtyuiBox* box, TtyuiDisplayBuffer* display_buffer);

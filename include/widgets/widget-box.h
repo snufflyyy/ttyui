@@ -5,9 +5,9 @@
 #include "widgets/widget-manager.h"
 
 typedef struct WidgetBox {
-    Widget widget;
-    Box box;
-    WidgetManager widget_manager;
-} WidgetBox;
+    TtyuiWidget widget;
+    TtyuiBox box;
+    TtyuiWidgetManager widget_manager;
+} TtyuiWidgetBox;
 
-WidgetBox* ttyui_widget_box_create();
+TtyuiWidgetBox* ttyui_widget_box_create();

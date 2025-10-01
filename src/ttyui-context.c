@@ -1,4 +1,4 @@
-#include "ttyui.h"
+#include "ttyui-context.h"
 #include "rendering/cell/cell-style-manager.h"
 #include "rendering/cursor.h"
 #include "rendering/display-buffer.h"
@@ -14,7 +14,7 @@
 #include <stdbool.h>
 #include <locale.h>
 
-static void ttyui_enable_raw_mode(Ttyui* ttyui) {
+static void ttyui_enable_raw_mode(TtyuiContext* ttyui) {
     if (tcgetattr(STDIN_FILENO, &ttyui->original_termios)) {
         perror("[ERROR] [TTYUI] Failed to get current terminos settings: ");
     }
@@ -26,8 +26,8 @@ static void ttyui_enable_raw_mode(Ttyui* ttyui) {
     }
 }
 
-Ttyui* ttyui_create() {
-    Ttyui* ttyui = (Ttyui*) malloc(sizeof(Ttyui));
+TtyuiContext* ttyui_create() {
+    TtyuiContext* ttyui = (TtyuiContext*) malloc(sizeof(TtyuiContext));
     if (!ttyui) {
         fprintf(stderr, "[ERROR] [TTYUI] Failed to allocate memory for ttyui context!\n");
         return NULL;
@@ -38,7 +38,7 @@ Ttyui* ttyui_create() {
         perror("[ERROR] [TTYUI] Failed to get terminal size: ");
         return NULL;
     }
-    ttyui->size = (Vector2) { window_size.ws_col, window_size.ws_row };
+    ttyui->size = (TtyuiVector2) { window_size.ws_col, window_size.ws_row };
 
     // change to raw mode, this allows for keyboard input character by character, no echoing (printing) when a key is pressed,
     // special characters are treated normally, and there is very minimal output processing.
@@ -58,17 +58,17 @@ Ttyui* ttyui_create() {
     //int flags = fcntl(STDIN_FILENO, F_GETFL, 0);
     //fcntl(STDIN_FILENO, F_SETFL, flags | O_NONBLOCK);
 
-    ttyui->widget_manager = ttyui_widget_manager_create((Vector2) { 0, 0 }, ttyui->size, TTYUI_WIDGET_MANAGER_DEFAULT_PADDING);
+    ttyui->widget_manager = ttyui_widget_manager_create((TtyuiVector2) { 0, 0 }, ttyui->size, TTYUI_WIDGET_MANAGER_DEFAULT_PADDING);
 
-    ttyui->running = true;
+    ttyui->is_running = true;
     return ttyui;
 }
 
-void ttyui_update(Ttyui* ttyui) {
+void ttyui_update(TtyuiContext* ttyui) {
     ttyui_widget_manager_update(&ttyui->widget_manager);
 }
 
-void ttyui_render(Ttyui* ttyui) {
+void ttyui_render(TtyuiContext* ttyui) {
     ttyui_display_buffer_clear(ttyui->back_buffer);
 
     ttyui_widget_manager_render(&ttyui->widget_manager, ttyui->back_buffer);
@@ -77,7 +77,9 @@ void ttyui_render(Ttyui* ttyui) {
     ttyui_display_buffer_swap(&ttyui->front_buffer, &ttyui->back_buffer);
 }
 
-void ttyui_destroy(Ttyui* ttyui) {
+void ttyui_destroy(TtyuiContext* ttyui) {
+    ttyui_widget_manager_destroy(&ttyui->widget_manager);
+
     ttyui_display_buffer_destroy(ttyui->front_buffer);
     ttyui_display_buffer_destroy(ttyui->back_buffer);
 
