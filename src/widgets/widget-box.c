@@ -9,8 +9,8 @@
 #include "widgets/widget-manager.h"
 #include "widgets/widget.h"
 
-static void ttyui_widget_box_update(void* widget_data);
-static void ttyui_widget_box_render(void* widget_data, TtyuiDisplayBuffer* display_buffer);
+void ttyui_widget_box_update(void* widget_data);
+void ttyui_widget_box_render(void* widget_data, TtyuiDisplayBuffer* display_buffer);
 void ttyui_widget_box_destroy(void* widget_data);
 
 TtyuiWidgetBox* ttyui_widget_box_create() {
@@ -21,7 +21,9 @@ TtyuiWidgetBox* ttyui_widget_box_create() {
     }
 
     widget_box->box = ttyui_box_create((TtyuiVector2) { 0, 0 }, (TtyuiVector2) { 0, 0 });
-    widget_box->widget = (TtyuiWidget) { &widget_box->box.position, &widget_box->box.size, ttyui_widget_box_update, ttyui_widget_box_render, ttyui_widget_box_destroy };
+    widget_box->minimum_size = (TtyuiVector2) { 0, 0 };
+    widget_box->maximum_size = (TtyuiVector2) { 0, 0 };
+    widget_box->widget = (TtyuiWidget) { &widget_box->box.position, &widget_box->box.size, &widget_box->minimum_size, &widget_box->maximum_size, ttyui_widget_box_update, ttyui_widget_box_render, ttyui_widget_box_destroy };
 
     widget_box->widget_manager = ttyui_widget_manager_create(widget_box->box.position, widget_box->box.size, TTYUI_WIDGET_MANAGER_DEFAULT_PADDING);
 

@@ -8,15 +8,15 @@
 #define TTYUI_WIDGET_MANAGER_DEFAULT_PADDING (TtyuiVector2) { 3, 1 }
 
 typedef enum TtyuiWidgetManagerSettingLayoutMode {
-    LEFT_TO_RIGHT,
-    TOP_TO_BOTTOM
+    TTYUI_WIDGET_MANAGER_LAYOUT_LEFT_TO_RIGHT,
+    TTYUI_WIDGET_MANAGER_LAYOUT_TOP_TO_BOTTOM
 } TtyuiWidgetManagerSettingLayoutMode;
 
 typedef struct TtyuiWidgetManagerSettings {
     TtyuiWidgetManagerSettingLayoutMode layout_mode;
 } TtyuiWidgetManagerSettings;
 
-typedef struct WidgetManager {
+typedef struct TtyuiWidgetManager {
     TtyuiVector2 position;
     TtyuiVector2 size;
     TtyuiVector2 padding;

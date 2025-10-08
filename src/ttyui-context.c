@@ -1,4 +1,5 @@
 #include "ttyui-context.h"
+#include "notifications/notification-manager.h"
 #include "rendering/cell/cell-style-manager.h"
 #include "rendering/cursor.h"
 #include "rendering/display-buffer.h"
@@ -60,6 +61,8 @@ TtyuiContext* ttyui_create() {
 
     ttyui->widget_manager = ttyui_widget_manager_create((TtyuiVector2) { 0, 0 }, ttyui->size, TTYUI_WIDGET_MANAGER_DEFAULT_PADDING);
 
+    ttyui->notification_manager = ttyui_notification_manager_create();
+
     ttyui->is_running = true;
     return ttyui;
 }
@@ -72,6 +75,7 @@ void ttyui_render(TtyuiContext* ttyui) {
     ttyui_display_buffer_clear(ttyui->back_buffer);
 
     ttyui_widget_manager_render(&ttyui->widget_manager, ttyui->back_buffer);
+    //ttyui_notification_manager_update_and_render(ttyui->notification_manager, ttyui->back_buffer);
 
     ttyui_display_buffer_present(ttyui->front_buffer, ttyui->back_buffer, &ttyui->cell_style_manager);
     ttyui_display_buffer_swap(&ttyui->front_buffer, &ttyui->back_buffer);

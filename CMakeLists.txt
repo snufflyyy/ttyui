@@ -20,9 +20,9 @@ add_library(${PROJECT_NAME}
     src/widgets/widget-manager.c
     src/widgets/widget-box.c
 
-    #src/notifications/notification.c
-    #src/notifications/notification-queue.c
-    #src/notifications/notification-manager.c
+    src/notifications/notification.c
+    src/notifications/notification-queue.c
+    src/notifications/notification-manager.c
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)

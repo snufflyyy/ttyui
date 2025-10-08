@@ -20,7 +20,7 @@ TtyuiBox ttyui_box_create(TtyuiVector2 position, TtyuiVector2 size) {
 void ttyui_box_render(TtyuiBox* box, TtyuiDisplayBuffer* display_buffer) {
     // ─│╭╮╰╯┴ box drawing characters
     //
-    // Tab box example:
+    // Tab box (maybe) example:
     //   ╭─ Week ─╮ ╭─ Month ─╮
     // ╭─╯        ╰─┴─────────┴───────────────
     // │ This is an example of the first tab.
@@ -33,6 +33,12 @@ void ttyui_box_render(TtyuiBox* box, TtyuiDisplayBuffer* display_buffer) {
 
     for (int y = box->position.y; y < box->position.y + box->size.y; y++) {
         for (int x = box->position.x; x < box->position.x + box->size.x; x++) {
+            if (!box->style.show_border) {
+                display_buffer->lines[y][x].character = L' ';
+                display_buffer->lines[y][x].style.background_color = box->style.background_color;
+                continue;
+            }
+
             if (y == box->position.y && x == box->position.x) {
                 display_buffer->lines[y][x].character = L'╭';
                 display_buffer->lines[y][x].style.foreground_color = box->style.border_color;

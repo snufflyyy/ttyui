@@ -4,8 +4,6 @@
 #include <unistd.h>
 
 TtyuiEvent ttyui_event_get() {
-    TtyuiEvent event;
-
     char input[TTYUI_EVENT_MAX_INPUT_SIZE];
     if (read(STDIN_FILENO, input, TTYUI_EVENT_MAX_INPUT_SIZE) == -1) {
         perror("[ERROR] [TTYUI] [EVENT] Failed to read from stdin");
@@ -14,8 +12,8 @@ TtyuiEvent ttyui_event_get() {
 
     switch (input[0]) {
         case 'q': return TTYUI_EVENT_QUIT; break;
-        default: return TTYUI_EVENT_NONE; break;
+        default: return input[0]; break;
     }
 
-    return event;
+    return TTYUI_EVENT_NONE;
 }

@@ -5,13 +5,13 @@
 #define TTYUI_NOTIFICATION_QUEUE_DEFAULT_CAPACITY 10
 #define TTYUI_NOTIFICATION_QUEUE_CAPACITY_SCALE_FACTOR 2
 
-typedef struct NotificationQueue {
-    Notification** notifications;
+typedef struct TtyuiNotificationQueue {
+    TtyuiNotification** notifications;
     int length;
     int capacity;
-} NotificationQueue;
+} TtyuiNotificationQueue;
 
-NotificationQueue ttyui_notification_queue_create();
-void ttyui_notification_queue_queue(NotificationQueue* queue, Notification* notification);
-Notification* ttyui_notification_queue_dequeue(NotificationQueue* queue);
-void ttyui_notification_queue_destroy(NotificationQueue* queue);
+TtyuiNotificationQueue ttyui_notification_queue_create();
+void ttyui_notification_queue_queue(TtyuiNotificationQueue* queue, TtyuiNotification* notification);
+TtyuiNotification* ttyui_notification_queue_dequeue(TtyuiNotificationQueue* queue);
+void ttyui_notification_queue_destroy(TtyuiNotificationQueue* queue);

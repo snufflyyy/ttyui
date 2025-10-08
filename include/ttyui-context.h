@@ -6,6 +6,7 @@
 #include "rendering/cell/cell-style-manager.h"
 #include "rendering/display-buffer.h"
 #include "widgets/widget-manager.h"
+#include "notifications/notification-manager.h"
 
 typedef struct TtyuiContext {
     bool is_running;
@@ -18,6 +19,8 @@ typedef struct TtyuiContext {
     TtyuiDisplayBuffer* back_buffer;
 
     TtyuiWidgetManager widget_manager;
+
+    TtyuiNotificationManager* notification_manager;
 } TtyuiContext;
 
 TtyuiContext* ttyui_create();
